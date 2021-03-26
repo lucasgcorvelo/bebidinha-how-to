@@ -1,4 +1,4 @@
-package com.android.example.bebidinhahowto.data
+package com.android.example.bebidinhahowto.data.models
 
 data class SeachDrinkAPIResult(
     val drinks: List<Drink>

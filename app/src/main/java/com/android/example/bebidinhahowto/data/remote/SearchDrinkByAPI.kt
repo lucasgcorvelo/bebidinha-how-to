@@ -1,13 +1,15 @@
-package com.android.example.bebidinhahowto.data
+package com.android.example.bebidinhahowto.data.remote
 
 import android.os.AsyncTask
 import android.util.Log
+import com.android.example.bebidinhahowto.data.models.SeachDrinkAPIResult
 import com.google.gson.Gson
 import okhttp3.OkHttpClient
 import okhttp3.Request
 
-class SearchDrinkByAPI(private val listener: TaskListener) :
-    AsyncTask<String?, Void?, SeachDrinkAPIResult>() {
+// https://square.github.io/retrofit/
+class SearchDrinkByAPI : AsyncTask<String?, Void?, SeachDrinkAPIResult>() {
+    lateinit var listener: TaskListener
 
     interface TaskListener {
         fun onDrinksResult(drinks: SeachDrinkAPIResult)

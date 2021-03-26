@@ -1,4 +1,4 @@
-package com.android.example.bebidinhahowto
+package com.android.example.bebidinhahowto.common
 
 import android.widget.ImageView
 import androidx.core.content.ContextCompat

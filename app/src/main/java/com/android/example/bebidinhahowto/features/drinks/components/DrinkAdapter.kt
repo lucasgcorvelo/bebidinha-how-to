@@ -1,16 +1,19 @@
-package com.android.example.bebidinhahowto
+package com.android.example.bebidinhahowto.features.drinks.components
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.android.example.bebidinhahowto.data.Drink
+import com.android.example.bebidinhahowto.data.models.Drink
 
 class DrinkAdapter(private val list: List<Drink>)
     : RecyclerView.Adapter<DrinkViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DrinkViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        return DrinkViewHolder(inflater, parent)
+        return DrinkViewHolder(
+            inflater,
+            parent
+        )
     }
 
     override fun onBindViewHolder(holder: DrinkViewHolder, position: Int) {
