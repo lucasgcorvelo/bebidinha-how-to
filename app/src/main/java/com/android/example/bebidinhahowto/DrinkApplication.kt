@@ -6,6 +6,7 @@ import com.android.example.bebidinhahowto.data.remote.DrinkService
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class DrinkApplication : Application() {
@@ -26,9 +27,9 @@ class DrinkApplication : Application() {
 
 val apiModule = module {
     single {
-        Log.i("Koin", "Get Api")
         val retrofit = Retrofit.Builder()
-           //.baseUrl("https://api.github.com/")
+            .baseUrl("https://www.thecocktaildb.com/api/")
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
 
         retrofit.create(DrinkService::class.java)

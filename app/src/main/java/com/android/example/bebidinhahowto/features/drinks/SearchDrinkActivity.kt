@@ -19,7 +19,7 @@ import org.koin.android.ext.android.inject
 //TODO Add the search result into a fragment and show it into the search activity
 //TODO Add the register now banner as a fragment under the search details
 
-class SearchDrinkActivity() : AppCompatActivity() {
+class SearchDrinkActivity : AppCompatActivity() {
 
     private val drinkService: DrinkService by inject()
 
@@ -35,10 +35,9 @@ class SearchDrinkActivity() : AppCompatActivity() {
     private fun getDrinks() {
         lifecycleScope.launch {
             val input = findViewById<EditText>(R.id.search_text).text.toString()
-            val drinks = drinkService.getDrinks(input)
+            val result = drinkService.getDrinks(input)
             val drinkRecyclerView = findViewById<RecyclerView>(R.id.drink_list)
-            drinkRecyclerView.adapter = DrinkAdapter(drinks)
+            drinkRecyclerView.adapter = DrinkAdapter(result.drinks)
         }
     }
-
 }

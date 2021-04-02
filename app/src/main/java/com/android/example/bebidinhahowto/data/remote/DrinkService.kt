@@ -6,6 +6,7 @@ import retrofit2.http.Query
 
 interface DrinkService {
     @GET("https://www.thecocktaildb.com/api/json/v1/1/search.php")
-    suspend fun getDrinks(@Query("s") input: String): List<Drink>
-
+    suspend fun getDrinks(@Query("s") input: String): DrinkResult
 }
+
+data class DrinkResult(val drinks: List<Drink>)
