@@ -2,9 +2,11 @@ package com.android.example.bebidinhahowto
 
 import android.app.Application
 import android.util.Log
-import com.android.example.bebidinhahowto.data.remote.SearchDrinkByAPI
+import com.android.example.bebidinhahowto.data.remote.DrinkService
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
+import retrofit2.Retrofit
+
 
 class DrinkApplication : Application() {
 
@@ -25,6 +27,10 @@ class DrinkApplication : Application() {
 val apiModule = module {
     single {
         Log.i("Koin", "Get Api")
-        SearchDrinkByAPI()
+        val retrofit = Retrofit.Builder()
+           //.baseUrl("https://api.github.com/")
+            .build()
+
+        retrofit.create(DrinkService::class.java)
     }
 }
